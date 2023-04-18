@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>Celestia Task</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div class="jumbotron text-center">
+    <h1>Celestia Tasks</h1>
+    <p></p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Submit PFB transaction</h3>
+            <p>
+                <form id="pfbform">
+                    <p>Namespace ID:</p>
+                    <p><input id="namespaceid" /></p>
+                    <p>Data:</p>
+                    <p><input id="data" /></p>
+                    <p><input type="button" id="pfbbutton" value="Submit"/></p>
+                </form>
+            </p>
+        </div>
+        <div class="col-sm-6">
+            <h3>Submit namespace shares</h3>
+            <p>
+                <form id="namespaceform">
+                    <p>Namespace ID:</p>
+                    <p><input id="namespaceid2" /></p>
+                    <p>Block Height:</p>
+                    <p><input id="blockheight" /></p>
+                    <p><input type="button" id="namespacebutton" value="Submit"/></p>
+                </form>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="index.js"></script>
+</body>
+</html>
