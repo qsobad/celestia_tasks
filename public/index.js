@@ -47,6 +47,7 @@ const blockHeightParcel = (recordId, values) => {
 };
 
 const renderResult = (type, namespaceId, height, txHash, rawData) => {
+    let title = '';
     let text = '';
     if (type === 'transaction') {
         title = 'PFB data';
