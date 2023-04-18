@@ -12,12 +12,13 @@ const transactionParcel = (recordId, values) => {
 
     fetch(url, {
         method: "POST",
-        headers: {"Content-Type": "text/plain"},
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify(payload),
         mode: "no-cors"
     })
         .then((response) => response.json())
         .then((data) => {
+            console.log(data);
             const tx_info = JSON.parse(JSON.stringify(data));
             const height = tx_info["height"];
             const txhash = tx_info["txhash"];
@@ -73,11 +74,13 @@ const renderResult = (type, namespaceId, height, txHash, rawData) => {
         `;
     }
 
-    $('.modal').on('shown.bs.modal', function () {
-        var modal = $(this);
-        modal.find('.modal-title').text(title);
-        modal.find('.modal-body input').val(text);
-    })
+    console.log(title, text);
+
+    var modal = $('#modal');
+    modal.find('.modal-title').text(title);
+    modal.find('.modal-body').html(text);
+
+    $('#modal').modal('show');
 
 };
 
@@ -96,3 +99,5 @@ $('#namespacebutton').click(function (e) {
     console.log(namespaceId2, blockheight);
     blockHeightParcel(namespaceId2, blockheight);
 });
+
+$('#modal').modal({show: false});
