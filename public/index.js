@@ -53,9 +53,9 @@ const renderResult = (type, namespaceId, height, txHash, rawData) => {
     if (type === 'transaction') {
         title = 'PFB data';
         text = `
-            <p> - Namespace ID: <code><span style="color: red; font-size: 20px;"><b>${namespaceId}</b></span></code><p>
-            <p> - Submitted block height: <code><span style="color: red; font-size: 20px;"><b>${height}</b></span></code><p>
-            <p> - Transaction hash: <code><span style="color: red; font-size: 20px;"><b>${txHash}</b></span></code><p>
+            <p> - Namespace ID: <code><b>${namespaceId}</b></code><p>
+            <p> - Submitted block height: <code><b>${height}</b></code><p>
+            <p> - Transaction hash: <code><b>${txHash}</b></code><p>
 			<p> - FPB TXH link: <b><a href="https://testnet.mintscan.io/celestia-incentivized-testnet/txs/${txHash}"> PFB TXH link</a></b><p>
             <p><h3> B. Detail PFB transaction info:</h3></p>
             <textarea name="response" style="width: 100%; height: 300px; border: 1px solid #ccc; overflow: auto;">
@@ -65,8 +65,8 @@ const renderResult = (type, namespaceId, height, txHash, rawData) => {
     } else {
         title = "Namespaced Shares"
         text = `
-            <p> - Namespace ID: <code><span style="color: red; font-size: 20px;"><b>${namespaceId}</b></span></code><p>
-            <p> - Submitted block height: <code><span style="color: red; font-size: 20px;"><b>${height}</b></span></code><p>
+            <p> - Namespace ID: <code><b>${namespaceId}</b></code><p>
+            <p> - Submitted block height: <code><b>${height}</b></code><p>
             <h2>B. Detail info:</h2>
             <textarea name="response" style="width: 100%; height: 300px; border: 1px solid #ccc; overflow: auto;">
                 ${JSON.stringify(rawData, null, 2)}
