@@ -32,7 +32,9 @@ const transactionParcel = (recordId, values) => {
 const blockHeightParcel = (recordId, values) => {
     const url = host + `/namespaced_shares/${recordId}/height/${values}`;
 
-    fetch(url)
+    fetch(url, {
+        mode: "no-cors"
+    })
         .then((response) => response.json())
         .then((data) => {
             const tx_info = JSON.parse(JSON.stringify(data));
@@ -49,8 +51,6 @@ const renderResult = (type, namespaceId, height, txHash, rawData) => {
     if (type === 'transaction') {
         title = 'PFB data';
         text = `
-            <h2>Your PFB data</h2>
-            <p><h3> A. Your PFB transaction has submitted to blockchain with below data </h3></p>
             <p> - Namespace ID: <code><span style="color: red; font-size: 20px;"><b>${namespaceId}</b></span></code><p>
             <p> - Submitted block height: <code><span style="color: red; font-size: 20px;"><b>${height}</b></span></code><p>
             <p> - Transaction hash: <code><span style="color: red; font-size: 20px;"><b>${txHash}</b></span></code><p>
@@ -63,7 +63,6 @@ const renderResult = (type, namespaceId, height, txHash, rawData) => {
     } else {
         title = "Namespaced Shares"
         text = `
-            <h2>A. Your Namespaced Shares Data</h2>
             <p> - Namespace ID: <code><span style="color: red; font-size: 20px;"><b>${namespaceId}</b></span></code><p>
             <p> - Submitted block height: <code><span style="color: red; font-size: 20px;"><b>${height}</b></span></code><p>
             <h2>B. Detail info:</h2>
@@ -87,4 +86,12 @@ $('#pfbbutton').click(function (e) {
     const data = $('#data').val();
     console.log(namespaceId, data);
     transactionParcel(namespaceId, data);
+});
+
+$('#namespacebutton').click(function (e) {
+    e.preventDefault();
+    const namespaceId2 = $('#namespaceid2').val();
+    const blockheight = $('#blockheight').val();
+    console.log(namespaceId2, blockheight);
+    blockHeightParcel(namespaceId2, blockheight);
 });
